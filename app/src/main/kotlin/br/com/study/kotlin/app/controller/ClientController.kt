@@ -16,8 +16,8 @@ class ClientController(@Autowired val clientService: ClientService){
     }
 
     @PutMapping("edit")
-    fun editClient(@RequestBody client: Client): Client{
-        clientService.edit(client)
+    fun updateClient(@RequestBody client: Client): Client{
+        clientService.update(client)
         return client
     }
 
@@ -29,6 +29,16 @@ class ClientController(@Autowired val clientService: ClientService){
     @GetMapping("{id}")
     fun findClientById(@PathVariable("id") id: Long): Client{
         return clientService.findById(id)
+    }
+
+    @GetMapping("{name}")
+    fun findClientByName(@PathVariable("name") name: String): Array<Client>{
+        return clientService.findByName(name)
+    }
+
+    @GetMapping("{age}")
+    fun findClientByAge(@PathVariable("age") age: Int): Array<Client>{
+        return clientService.findByAge(age)
     }
 
     @GetMapping("all")

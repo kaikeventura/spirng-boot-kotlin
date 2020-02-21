@@ -9,7 +9,7 @@ import javax.persistence.Id
 data class Client (
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        val id: Long,
-        val name: String,
-        val age: Int
+        val id: Long?,
+        val name: String?,
+        val age: Int?
 )
